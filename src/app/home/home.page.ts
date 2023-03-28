@@ -8,13 +8,13 @@ import { AlertController } from '@ionic/angular';
 })
 export class HomePage {
 
+  radioDesc: string='';
   distancia: string='';
-  resultado: number=0;
   item: string='';
   compra: number= 0;
-  radioSelecionada: string='';
-  radioDesc: string='';
   peso: string='';
+  resultado: number=0;
+  radioSelecionada: string='';
 
 
   constructor(
@@ -24,21 +24,21 @@ export class HomePage {
   //Frete
   calcular() {
 
-    this.resultado = (parseFloat(this.peso) * 2)+ (parseFloat(this.distancia) * 4)
+    this.resultado = (parseFloat(this.peso))+ (parseFloat(this.distancia) / 2)
 
-    if(this.radioSelecionada == "freteAM"){
-      this.resultado = this.resultado + 20
+    if(this.radioSelecionada == "freteexpresso"){
+      this.resultado = this.resultado
     }
     else if(this.radioSelecionada == "frete2"){
-      this.resultado = this.resultado + 15
-    }
-    else if(this.radioSelecionada == "frete5"){
-      this.resultado = this.resultado + 10
+      this.resultado= this.resultado / 2 + 10
     }
     else if(this.radioSelecionada == "frete7"){
-      this.resultado = this.resultado + 5
+      this.resultado = this.resultado / 2
+
+      
     }
   }
+  
   
   verificar(){
     this.calcular()
