@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      App de custo envio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label position="floating">Qual o peso da mercadoria?</ion-label>
+    <ion-input [(ngModel)]="peso" placeholder="Peso"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Qual a distância a percorrer?</ion-label>
+    <ion-input [(ngModel)]="distancia" placeholder="Distancia"></ion-input>
+  </ion-item>
+
+  <br>
+  
+
+    <ion-list-header>Qual o tipo de entrega?</ion-list-header>
+
+    <div class="frete">
+    <ion-radio-group [(ngModel)]="radioSelecionada"> 
+      <ion-item>
+        <ion-label>Expresso (Rápido)</ion-label>
+        <ion-radio slot="end" value="freteAM"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Agendado (Até 30 dias)</ion-label>
+        <ion-radio slot="end" value="frete2"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Regular</ion-label>
+        <ion-radio slot="end" value="frete7"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+
+
+  <ion-button fill="outline" (click)="verificar()">Calcular</ion-button>
+  <ion-input [readonly]="true" value="Total: {{resultado}} Reais"></ion-input>
+
+</div>
+
+ <div class="desconto">
+  <h3>Muitos itens?
+  <br>Garanta seu desconto!</h3>
+</div>
+
+<ion-list-header> Quantidade de itens </ion-list-header>
+  <ion-list> 
+    <ion-item>
+      <ion-select [(ngModel)]="radioDesc" interface="popover" placeholder="Selecione a quantidade de itens">
+        <ion-select-option value="item3">Até 5</ion-select-option>
+        <ion-select-option value="item7">Até 15</ion-select-option>
+        <ion-select-option value="item8">Até 40</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-button fill="outline" color="danger" (click)="verificarDesc()">Valor final</ion-button>
+
+
+</ion-content>
